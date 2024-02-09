@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #F8F0E5;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+a, input, textarea {
+  cursor: pointer;
+  display: block;
+  margin: 15px 0;
+  padding: 10px 5px;
+}
+
+.p-message {
+  background: rgba(16, 44, 87, 0.8);
+  color: #fff;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 20px;
+  position: fixed;
+}
+
+.p-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 40px 0;
+}
+
+.c-title {
+  text-align: center;
+}
+
+.c-form {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #EADBC8;
+  margin: 50px 0 0;
+  padding: 15px 20px;
+}
+
+.c-submit {
+  background: #102C57;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.p-length__input {
+  width: 500px;
+}
+
+.p-pass__input {
+  width: 400px;
+}
+
+.p-animal {
+  padding: 15px 20px;
+}
+.p-animal__image {
+  box-shadow: 0 0 8px #102C57;
+  margin: 0 auto;
+  width: 70%;
+}
+.p-animal__image--item {
+  width: 100%;
+}
+.p-animal__submit {
+  box-shadow: 0 5px 5px rgba(16, 44, 87, 0.8);
+  cursor: pointer;
+  float: right;
+  margin-right: 20px;
+  transition: all 0.5s;
+  transform: translateY(-5px);
+}
+.p-animal__submit:hover {
+  background: rgba(16, 44, 87, 0.8);
+  box-shadow: none;
+  transition: all 0.5s;
+  transform: translateY(5px);
+}
+
+/*# sourceMappingURL=style.css.map */
