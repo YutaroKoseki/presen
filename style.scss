@@ -11,7 +11,6 @@ $white: #fff;
 }
 
 body{
-  background: $beige;
   margin: 0;
   padding: 0;
 }
@@ -43,10 +42,18 @@ a,input,textarea{
   padding: 40px 0;
 }
 
+.c-box{
+  margin: 40px 0;
+}
 
 .c-title{
   text-align: center;
 }
+
+.c-list__item{
+  margin-bottom: 5px;
+}
+
 .c-form{
   background: $white;
   border-radius: 5px;
@@ -71,6 +78,26 @@ a,input,textarea{
 
 .p-pass__input{
   width: 400px;
+}
+
+// validPass
+
+.p-error{
+  color: red;
+}
+
+.p-message{
+  display: none;
+
+
+  &__success{
+    background: $light_blue;
+    color: $white;
+    display: block;
+    margin: 0;
+    padding: 10px 15px;
+    text-align: center;
+  }
 }
 
 //animals
@@ -104,4 +131,15 @@ a,input,textarea{
       transform: translateY(5px);
     }
   }
+}
+
+
+.p-topTitle{
+  background: linear-gradient(transparent 50%, $beige 50%);
+  text-align: center;
+}
+
+.p-title{
+  border-left: 8px solid $blue;
+  padding-left: 15px;
 }

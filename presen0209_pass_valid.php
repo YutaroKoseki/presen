@@ -10,64 +10,49 @@ define('ERR02', '半角英数字で8文字以上必要です');
 define('ERR03', '最低でも1つ以上の大文字が必要です');
 define('ERR04', '半角英数字のみご利用いただけます');
 
-($_POST['password']);
+
 
 // 関数
 
-function validPass($str, $key){
-    global $errMsg;
+function validPass($str){
 
     // 空かどうか
     if($str == ''){
         return ERR01;
     }
-}
 
-function validRequired($str, $key){
-    global $errMsg;
-    // 空だった場合
-    if($str === ''){
-        return $errMsg[$key] = ERR01;
+    // 文字数チェック
+    if(mb_strlen($str) < 8){
+        return ERR02;
     }
-}
 
-function validMinLength($str, $key, $min){
-    global $errMsg;
-    if(mb_strlen($str) < $min){
-        return $errMsg[$key] = ERR02;
-    }
-}
-
-function validUpper($str, $key){
-    global $errMsg;
+    // 大文字を含むか
     if(!preg_match('@[A-Z]@', $str)){
-        return $errMsg[$key] = ERR03;
+        return ERR03;
     }
-}
 
-function validHalf($str, $key){
-    global $errMsg;
+    // 半角英数字のみ
     if(!preg_match('@^[a-zA-Z0-9]+$@', $str)){
-        return $errMsg[$key] = ERR04;
+        return ERR04;
     }
+
+    return '';
 }
 
 
 // 処理
 
 // POST送信された場合
-if(!empty($_POST['password'])){
-    $password = $_POST['password'];
-    
-    validRequired($password, 'password');
-    validMinLength($password, 'password', 8);
-    validUpper($password, 'password');
-    validHalf($password, 'password');
+if(isset($_POST['password'])){
+    $pass = $_POST['password'];
 
-    // エラーがない場合
-    if(empty($errMsg)){
-        password_hash($password, PASSWORD_DEFAULT);
-        // 保存したテイで。。。
+    // バリデーション
+    $error = validPass($pass);
+
+    if ($error !== '') {
+        $errMsg['password'] = $error;
+    } else {
+        // エラーがない場合、パスワードをハッシュ化して保存（デモのため保存処理は省略）
         $msg = 'パスワードを保存しました！';
     }
 }
@@ -86,7 +71,7 @@ if(!empty($_POST['password'])){
     <title>Presentation01</title>
 </head>
 <body>
-  <h1 class="p-message"><?php echo ($msg == '')? "ここが変わります": $msg; ?></h1>
+  <h1 class="p-message<?php echo ($msg == '')? '' : '__success'?>"><?php echo ($msg == '')? '': $msg; ?></h1>
 
   <div class="p-wrapper">
 
@@ -97,8 +82,9 @@ if(!empty($_POST['password'])){
 
           <p class="c-text">パスワードを入力してください</p>
           <input type="password" name="password" value="" placeholder="半角英数字8文字以上で入力してください" class="p-pass__input c-input">
+          <p class="p-error"><?php echo (!empty($errMsg['password']))? $errMsg['password']: ''; ?></p>
+
           <input type="submit" class="p-pass__submit c-submit" value="登録する！">
-          <p class=""><?php echo (!empty($errMsg['password']))? $errMsg['password']: ''; ?></p>
       </form>
 
   </div>

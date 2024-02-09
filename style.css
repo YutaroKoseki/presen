@@ -3,7 +3,6 @@
 }
 
 body {
-  background: #F8F0E5;
   margin: 0;
   padding: 0;
 }
@@ -35,8 +34,16 @@ a, input, textarea {
   padding: 40px 0;
 }
 
+.c-box {
+  margin: 40px 0;
+}
+
 .c-title {
   text-align: center;
+}
+
+.c-list__item {
+  margin-bottom: 5px;
 }
 
 .c-form {
@@ -65,6 +72,22 @@ a, input, textarea {
   width: 400px;
 }
 
+.p-error {
+  color: red;
+}
+
+.p-message {
+  display: none;
+}
+.p-message__success {
+  background: rgba(16, 44, 87, 0.8);
+  color: #fff;
+  display: block;
+  margin: 0;
+  padding: 10px 15px;
+  text-align: center;
+}
+
 .p-animal {
   padding: 15px 20px;
 }
@@ -89,6 +112,16 @@ a, input, textarea {
   box-shadow: none;
   transition: all 0.5s;
   transform: translateY(5px);
+}
+
+.p-topTitle {
+  background: linear-gradient(transparent 50%, #F8F0E5 50%);
+  text-align: center;
+}
+
+.p-title {
+  border-left: 8px solid #102C57;
+  padding-left: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
